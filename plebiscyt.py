@@ -1,9 +1,9 @@
 import os
 
 from format_output import format_output
+from global_defs import lists_dir_prefix, output_filename, max_points
 
-lists_dir_prefix = 'listy'
-output_filename = 'suma.txt'
+
 top_list = {}
 
 if os.path.isfile(os.path.join(lists_dir_prefix, output_filename)):
@@ -19,7 +19,7 @@ for filename in os.listdir('listy'):
     for index, entry in enumerate(top_list_raw):
         disc_name = ' '.join(entry.split()[1:])
 
-        points = 30 - index
+        points = max_points - index
         if disc_name in top_list:
             top_list[disc_name] += int(points)
         else:
